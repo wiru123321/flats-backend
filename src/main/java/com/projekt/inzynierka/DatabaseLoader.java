@@ -7,7 +7,6 @@ import com.projekt.inzynierka.repositories.*;
 import com.projekt.inzynierka.services.RoleService;
 import com.projekt.inzynierka.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -33,9 +32,6 @@ public class DatabaseLoader implements CommandLineRunner {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    @Value("${spring.datasource.username}")
-    private String dataBase;
-
     @Autowired
     public DatabaseLoader(
             final RoleRepository roleRepository, final UserRepository userRepository,
@@ -55,8 +51,6 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(final String... strings) throws Exception {
-
-        if (dataBase.equals("postgres")) {
 
             roleRepository.save(new Role(null, "ADMIN"));
             roleRepository.save(new Role(null, "RESIDENT"));
@@ -91,7 +85,6 @@ public class DatabaseLoader implements CommandLineRunner {
             userRepository.save(new User(null, "user123", passwordEncoder.encode("upassword123"), "admin4@email.com", "Adam", "Adamski", "513238358", roleRepository.findByName("RESIDENT"),flatsRepository.findById(idFlat1).get()));
             userRepository.save(new User(null, "1123",  passwordEncoder.encode("1223"), "admin43@email.com", "JanAaa", "KowalskiAaa", "514238358", roleRepository.findByName("RESIDENT"),flatsRepository.findById(idFlat2).get()));
 
-        }
     }
 }
 
