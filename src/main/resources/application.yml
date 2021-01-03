@@ -1,12 +1,7 @@
 spring:
   jpa:
-    hibernate:
-      ddl-auto: create
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/zarzadzanie_osiedlem
-    username: postgres
-    password: admin
-    initialization-mode: always
-server:
-  port: 8080
+    url:  postgres://jsoolryicvphia:9be2f6e32c2b478431a78a210a135dc111a37888ff08c70a992f25fa6cc09b60@ec2-54-76-215-139.eu-west-1.compute.amazonaws.com:5432/d1h1lj67g0k62k
+    username:
+    password:
