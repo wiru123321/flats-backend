@@ -1,8 +1,4 @@
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: update
-    generate-ddl: true
   datasource:
     url:  ${JDBC_DATABASE_URL}
     username:  jsoolryicvphia
