@@ -9,3 +9,9 @@ spring:
     password:  ${SPRING_DATASOURCE_PASSWORD}
     driverClassName: org.postgresql.Driver
     type: org.apache.tomcat.jdbc.pool.DataSource
+    tomcat:
+      max-active: 10
+      max-idle: 5
+      min-idle: 2
+      initial-size: 5
+      remove-abandoned: true
